@@ -68,10 +68,13 @@ then
 	a2enmod ssl
 
 	# Restart services
+	echo "Restarting apache..."
 	/etc/init.d/apache2 restart
 
 	# Clean up
+	echo "Cleaning up..."
 	apt-get clean
 
+	echo "-------------------------------"
 	echo "All done, now go code something"
 fi

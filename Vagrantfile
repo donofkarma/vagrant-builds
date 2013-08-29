@@ -49,7 +49,8 @@ Vagrant.configure("2") do |config|
   # information on available options.
 
   # Enable shell provisioning
-  config.vm.provision :shell, :path => "provision/lamp.sh"
+  #config.vm.provision :shell, :path => "provision/lamp.sh"
+  config.vm.provision :shell, :path => "provision/node.sh"
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.

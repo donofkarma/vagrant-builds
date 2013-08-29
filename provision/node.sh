@@ -13,22 +13,24 @@ then
 	echo "Updating apt-get..."
 	apt-get update
 
-	# install node.js
+	# Install node.js
 	echo "Installing Node.js $NODE_VERSION..."
-	cd /usr/src
-	wget --quiet $NODE_SOURCE
-	tar xf node-v$NODE_VERSION.tar.gz
-	cd node-v$NODE_VERSION
+	apt-get install nodejs
 
-	# configure
-	./configure --prefix=/opt/node/$NODE_VERSION
-
-	# make and install
-	make
-	make install
+	# Install mongodb
+	echo "Installing mongodb..."
+	apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+	echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" | tee -a /etc/apt/sources.list.d/10gen.list
+	apt-get -y update
+	apt-get -y install mongodb-10gen
+	# set up the required directories and permissions
+	mkdir -p /data/db
+	chown mongodb /data/db
 
 	# Clean up
+	echo "Cleaning up..."
 	apt-get clean
 
+	echo "-------------------------------"
 	echo "All done, now go code something"
 fi
