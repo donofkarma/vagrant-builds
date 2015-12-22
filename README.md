@@ -9,7 +9,6 @@ To-do
 ---------------------
 
 - Add some docs
-- Add node.js provision
 
 Release History
 ---------------------
