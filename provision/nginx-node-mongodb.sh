@@ -26,22 +26,26 @@ echo "INFO: Updating config/hosts..."
 
 VHOST=$(cat <<EOF
 server {
-    listen 3000;
-    listen 443 ssl;
+    # listen to port...
+    listen 80;
+
+    # set server name
     server_name localhost;
 
+    # set vagrant root
     root /vagrant/site/;
-    index index.html;
 
-    # Important for VirtualBox
+    # important for virtualbox
     sendfile off;
 
+    # static file serve
     location /assets/ {
        try_files $uri $uri/ =404;
     }
 
+    # main app serve
     location / {
-        proxy_pass http://localhost:3001;
+        proxy_pass http://localhost:3000;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
