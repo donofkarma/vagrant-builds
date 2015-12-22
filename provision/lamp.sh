@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# node.js settings
-NODE_VERSION=0.10.22
-NODE_SOURCE=http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION.tar.gz
-
 # If apache2 does not exist
 if [ ! -f /etc/apache2/apache2.conf ];
 then
@@ -75,14 +71,6 @@ then
     # Enable SSL
     echo "INFO: Enabling SSL..."
     a2enmod ssl
-
-    # Install node.js
-    echo "INFO: Installing node.js $NODE_VERSION..."
-    apt-get update
-    apt-get install -y python-software-properties python g++ make
-    add-apt-repository -y ppa:chris-lea/node.js
-    apt-get update
-    apt-get install -y nodejs
 
     # Restart services
     echo "INFO: Restarting apache..."
