@@ -1,0 +1,24 @@
+{
+    "name": "vagrant-builds",
+    "type": "project",
+    "version": "0.2.0",
+    "license": "LicenseRef-LICENSE",
+    "description": "Some Vagrant env builds",
+    "authors": [
+        {
+            "name": "Jasal Vadgama",
+            "email": "jasal@blacklabelcreative.com",
+            "homepage": "https://blacklabelcreative.com/"
+        }
+    ],
+
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+
+    "require": {
+    }
+}
